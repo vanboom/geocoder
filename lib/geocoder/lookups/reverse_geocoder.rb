@@ -48,7 +48,6 @@ module Geocoder::Lookup
 
     def results(query)
       return [] unless doc = fetch_data(query)
-      ap doc
       doc.is_a?(Array) ? doc : [doc]
       return doc.map{|r| remap_result(r)}
     end
