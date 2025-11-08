@@ -222,6 +222,8 @@ module Geocoder
       # Parses a raw search result (returns hash or array).
       #
       def parse_raw_data(raw_data)
+        ap "parsing..."
+        ap raw_data
         parse_json(raw_data)
       end
 
@@ -306,6 +308,10 @@ module Geocoder
               configuration.basic_auth[:password]
             )
           end
+          puts "attemptinmgm client requewst...."
+          ap configuration.http_headers
+          ap client
+          ap req
           client.request(req)
         end
       rescue Timeout::Error
